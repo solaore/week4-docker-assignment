@@ -1,0 +1,25 @@
+# ⚠️ THIS FILE IS DELIBERATELY BROKEN ⚠️
+# It contains 5 bugs. Your job is to find and fix every one,
+# get the stack running, and PROVE the database persists.
+# See README.md in this folder for full instructions.
+
+services:
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: labpass
+    volumes:
+      - db-data:/var/lab/postgresql/data
+
+  app:
+    image: ubuntu
+    command: sleep 3600
+    networks:
+      - app-net
+
+networks:
+  - app-net
+
+volumes:
+  - db-data
