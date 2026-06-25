@@ -98,20 +98,21 @@ In this folder, you must end up with:
 > Replace the prompts below with your own answers.
 
 **1. What does each service in the `docker-compose.yml` do?**
-- `app`:
-- `db`:
+- `app`:This is a service that is created from the build in ./app, it maps port 3000 on the machine to port 3000 on the container. It also connects to the db using the env variables specified. This container only comes up after the database container is up since it depends on the database.
+- `db`: This service builds a postgres database using the original postgres image pulled from docker hub, ataaches env variables that postgres needs to start up and also attaches a volume so data on the database can persist even after the container is stopped or recreated.
 
 **2. How is the app able to reach the database by name?**
 (Hint: look at `DB_HOST` in the compose file and the service names.)
+The app was able to reach the database using the database host (db) declared in the env variable which is same as the service name (db) of the database container
 
 
 **3. What exact path is the volume mounted to, and why must it be that path?**
 (Hint: where does PostgreSQL store its data?)
+The volume is mounted into /var/lib/postgresql/data because it is the default location for postgres docker images where everything written into db-data gets stored. This is what makes the data survive container restarts.
 
 
 **4. What happens to your data if you run `docker compose down -v` instead of `docker compose down`?**
-
-
+This permamnently deletes all data. The command stops and deletes all containers, networks and volumes declared in the compose file.
 ---
 
 ## 🧹 Cleanup (when you're done)
