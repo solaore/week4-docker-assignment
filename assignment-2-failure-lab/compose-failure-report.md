@@ -5,6 +5,7 @@
 ---
 
 ## Bug 1
+
 - **What was wrong: Got the error "networks must be a mapping"**
 - **How I found it (what error or symptom?): Ran the docker compose -f docker-compose.broken2.yml up -d command**
 - **How I fixed it: I modified the part where networks were declared in the .yml file  and made it into a mapping instead of a list (- app-net) **
