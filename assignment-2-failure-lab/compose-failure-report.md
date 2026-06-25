@@ -5,19 +5,19 @@
 ---
 
 ## Bug 1
-- **What was wrong:**
-- **How I found it (what error or symptom?):**
-- **How I fixed it:**
+- **What was wrong: Got the error "networks must be a mapping"**
+- **How I found it (what error or symptom?): Ran the docker compose -f docker-compose.broken2.yml up -d command**
+- **How I fixed it: I modified the part where networks were declared in the .yml file  and made it into a mapping instead of a list (- app-net) **
 
 ## Bug 2
-- **What was wrong:**
-- **How I found it:**
-- **How I fixed it:**
+- ** What was wrong: Got the error "volumes must be a mapping" **
+- ** How I found it: Ran the docker compose -f docker-compose.broken2.yml up -d command again **
+- ** How I fixed it: I modified the part where volumes were declared in the .yml file  and made it into a mapping instead of a list (- db-data) **
 
 ## Bug 3
-- **What was wrong:**
-- **How I found it:**
-- **How I fixed it:**
+- **What was wrong: psql: error: connection to server at "db" (172.19.0.3), port 5432 failed: FATAL:  database "labdb" does not exist **
+- **How I found it: Ran psql -h db -U postgres -d labdb command **
+- **How I fixed it: Added POSTGRES_PASSWORD = DB **
 
 ## Bug 4
 - **What was wrong:**
