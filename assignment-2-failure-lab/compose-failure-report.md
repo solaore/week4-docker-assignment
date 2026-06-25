@@ -27,7 +27,7 @@
 ## Bug 5
 - **What was wrong: After tearing down and bringing up the app, all the data was lost. The table was non-existent**
 - **How I found it: I got the error " ERROR:  relation 'students' does not exist "**
-- **How I fixed it: I modified the volume path declared in the db service for persistent data storage from /var/lab/postgresql/data to /var/lib/postgresql/data, which is where postgres actually writes its files into**
+- **How I fixed it: I modified the volume path declared in the db service for persistent data storage from /var/lab/postgresql/data to /var/lib/postgresql/data, which is where PostgreSQL actually writes its files into**
 
 ## 🔍 The Silent Bug (most important)
 
